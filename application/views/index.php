@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Flight Ticket Booking a Flat Responsive Widget Template :: w3layouts</title>
+	<title>TRAVELKITA</title>
 	<link rel="stylesheet" href="<?php echo URL_ASSETS;?>/css/style.css">
 	<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300italic,300,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
 	<link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
@@ -19,7 +19,7 @@
 		
 </head>
 <body>
-	<h1>Flight Ticket Booking</h1>
+	<h1>TRAVELKITA</h1>
 	<div class="main-agileinfo">
 		<div class="sap_tabs">			
 			<div id="horizontalTab">

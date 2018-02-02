@@ -22,4 +22,16 @@ class Model extends CI_Model {
 			return false;
 		}
 	}
+	public function getuser($where=" "){
+		$data =$this->db->query('select * from user ' .$where);
+		return $data;
+	}
+	public function Hapus($table,$where){
+		return $this->db->delete($table,$where);
+	}
+	public function update_data($where,$data,$table){
+		$this->db->where($where);
+		$query = $this->db->update($table,$data);
+		return $query;
+	}
 }
