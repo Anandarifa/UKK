@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>TRAVELKITA</title>
+	<title>WETRAVEL</title>
 	<link rel="stylesheet" href="<?php echo URL_ASSETS;?>/css/style.css">
 	<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300italic,300,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
 	<link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
@@ -16,51 +16,98 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="keywords" content="Flight Ticket Booking  Widget Responsive, Login Form Web Template, Flat Pricing Tables, Flat Drop-Downs, Sign-Up Web Templates, Flat Web Templates, Login Sign-up Responsive Web Template, Smartphone Compatible Web Template, Free Web Designs for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design" />
 	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-		
+	<style type="text/css">
+		.bg{
+			background: url(<?php echo base_url();?>assets/images/5.jpg);
+			background-size: cover;
+		}
+		.resp-tabs-list {
+			background: #241614;
+		}
+		input[type="submit"]{
+			background: #241614;
+		}
+		input[type="submit"]:hover{
+			background:#99C794;
+		}
+		h3{
+			color:#566167;
+		}
+		input{
+			background:rgba(3, 3, 3, 0.57);
+			border: 0;
+			color: white;
+			border: 1px solid #A9A9A9;
+		}
+		select{
+			background: rgba(3, 3, 3, 0.57);
+			color: white;
+		}
+		.select-kota{
+			width: 100%;
+		}
+		input[type="password"] {
+		padding: 10px;
+		width: 93%;
+		float: left;
+	}
+	</style>
 </head>
-<body>
-	<h1>TRAVELKITA</h1>
+<body class="bg" background="<?php echo URL_ASSETS;?>images/5.jpg">
+	<h1>WETRAVEL</h1>
 	<div class="main-agileinfo">
 		<div class="sap_tabs">			
 			<div id="horizontalTab">
 				<ul class="resp-tabs-list">
 					<li class="resp-tab-item"><span>Round Trip</span></li>
-					<li class="resp-tab-item"><span>One way</span></li>
-					<li class="resp-tab-item"><span>Multi city</span></li>		
-					<li class="resp-tab-item"><span>Register</span></li>	
+					<li class="resp-tab-item"><span>One way</span></li>	
+					<li class="resp-tab-item"><span>Register</span></li>
+					<li class="resp-tab-item"><span>Login</span></li>	
 				</ul>	
 				<div class="clearfix"> </div>	
 				<div class="resp-tabs-container">
 					<div class="tab-1 resp-tab-content roundtrip">
 						<form action="#" method="post">
 							<div class="from">
-								<h3>From</h3>
-								<input type="text" name="city" class="city1" placeholder="Type Departure City" required="">
+								<h3>Keberangkatan</h3>
+								<select id="w3_country1" class="select-kota" onchange="change_country(this.value)" class="frm-field required">
+									<option>Jakarta</option>  
+									<option>Bandung</option>   
+									<option>Surabaya</option>   
+									<option>Bali</option>  
+									<option>Magelang</option> 
+									<option>Yogyakarta</option> 
+									<option>Jayapura</option>  	
+									<option>Merauke</option> 					
+								</select>
 							</div>
 							<div class="to">
-								<h3>To</h3>
-								<input type="text" name="city" class="city2" placeholder="Type Destination City" required="">
+								<h3>Tujuan</h3>
+								<select id="w3_country1" class="select-kota"  onchange="change_country(this.value)" class="frm-field required">
+									<option>Jakarta</option>  
+									<option>Bandung</option>   
+									<option>Surabaya</option>   
+									<option>Bali</option>  
+									<option>Magelang</option> 
+									<option>Yogyakarta</option> 
+									<option>Jayapura</option>  	
+									<option>Merauke</option> 					
+								</select>
 							</div>
 							<div class="clear"></div>
 							<div class="date">
 								<div class="depart">
-									<h3>Depart</h3>
+									<h3>Tanggal</h3>
 									<input  id="datepicker" name="Text" type="text" value="mm/dd/yyyy" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}" required="">
-									<span class="checkbox1">
-										<label class="checkbox"><input type="checkbox" name="" checked=""><i> </i>Flexible with date</label>
-									</span>
 								</div>
 								<div class="return">
-									<h3>Return</h3>
+									<h3>Kembali</h3>
 									<input  id="datepicker1" name="Text" type="text" value="mm/dd/yyyy" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}" required="">
-									<span class="checkbox1">
-										<label class="checkbox"><input type="checkbox" name="" checked=""><i> </i>Flexible with date</label>
-									</span>
 								</div>
 								<div class="clear"></div>
 							</div>
 							<div class="class">
-								<h3>Class</h3>
+								<h3>Kelas</h3>
 								<select id="w3_country1" onchange="change_country(this.value)" class="frm-field required">
 									<option value="null">Economy</option>  
 									<option value="null">Premium Economy</option>   
@@ -71,7 +118,7 @@
 							</div>
 							<div class="clear"></div>
 							<div class="numofppl">
-								<div class="adults">
+								<!-- <div class="adults">
 									<h3>Adult:(12+ yrs)</h3>
 									<div class="quantity"> 
 										<div class="quantity-select">                           
@@ -90,11 +137,11 @@
 											<div class="entry value-plus active">&nbsp;</div>
 										</div>
 									</div>
-								</div>
+								</div> -->
 								<div class="clear"></div>
 							</div>
 							<div class="clear"></div>
-							<input type="submit" value="Search Flights">
+							<input type="submit" value="Cari Penerbangan">
 						</form>						
 					</div>		
 					<div class="tab-1 resp-tab-content oneway">
@@ -113,7 +160,6 @@
 									<h3>Depart</h3>
 									<input class="date" id="datepicker2" name="Text" type="text" value="mm/dd/yyyy" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}" required="">
 									<span class="checkbox1">
-										<label class="checkbox"><input type="checkbox" name="" checked=""><i> </i>Flexible with date</label>
 									</span>
 								</div>
 							</div>
@@ -133,8 +179,8 @@
 									<h3>Adult:(12+ yrs)</h3>
 									<div class="quantity"> 
 										<div class="quantity-select">                           
-											<div class="entry value-minus">&nbsp;</div>
-											<div class="entry value"><span>1</span></div>
+											<div class="entry value-minus" style="color: white;">&nbsp;</div>
+											<div class="entry value" style="background:rgba(3, 3, 3, 0.57); color: white;"><span>1</span></div>
 											<div class="entry value-plus active">&nbsp;</div>
 										</div>
 									</div>
@@ -144,7 +190,7 @@
 									<div class="quantity"> 
 										<div class="quantity-select">                           
 											<div class="entry value-minus">&nbsp;</div>
-											<div class="entry value"><span>1</span></div>
+											<div class="entry value" style="background:rgba(3, 3, 3, 0.57); color: white;"><span>1</span></div>
 											<div class="entry value-plus active">&nbsp;</div>
 										</div>
 									</div>
@@ -156,120 +202,43 @@
 						</form>	
 								
 					</div>
-					<div class="tab-1 resp-tab-content multicity">
-						
-									<form action="#" method="post">
-										<div class="from">
-											<h3>From</h3>
-											<input type="text" name="city" class="city1" placeholder="Type Departure City" required="">
-										</div>
-										<div class="to">
-											<h3>To</h3>
-											<input type="text" name="city" class="city2" placeholder="Type Destination City" required="">
-										</div>
-										<div class="clear"></div>
-										<div class="date">
-											<div class="depart">
-												<h3>Depart</h3>
-												<input class="date" id="datepicker3" name="Text" type="text" value="mm/dd/yyyy" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}" required="">
-												<span class="checkbox1">
-													<label class="checkbox"><input type="checkbox" name="" checked=""><i> </i>Flexible with date</label>
-												</span>
-											</div>
-										</div>
-										<div class="class">
-											<h3>Class</h3>
-											<select id="w3_country1" onchange="change_country(this.value)" class="frm-field required">
-												<option value="null">Economy</option>  
-												<option value="null">Premium Economy</option>   
-												<option value="null">Business</option>   
-												<option value="null">First class</option>   						
-											</select>
-										</div>
-										<div class="clear"></div>
-										<div id="loadMore">Add City+</div>
-										<div id="showLess">Remove</div>
-									</form>
-				<div class="load_more">	
-						<ul id="myList">
-							<li>
-			
-								<div class="l_g spcl">
-									<form action="#" method="post" class="blackbg">
-										<div class="from">
-											<h3>From</h3>
-											<input type="text" name="city" class="city1" placeholder="Type Departure City" required="">
-										</div>
-										<div class="to">
-											<h3>To</h3>
-											<input type="text" name="city" class="city2" placeholder="Type Destination City" required="">
-										</div>
-										<div class="clear"></div>
-										<div class="date">
-											<div class="depart">
-												<h3>Depart</h3>
-												<input class="date" id="datepicker" name="Text" type="text" value="mm/dd/yyyy" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}" required="">
-												<span class="checkbox1">
-													<label class="checkbox"><input type="checkbox" name="" checked=""><i> </i>Flexible with date</label>
-												</span>
-											</div>
-										</div>
-										<div class="clear"></div>
-									</form>
-					
-								</div>
-								
-							</li>
-							<form action="#" method="post">
-							<div class="numofppl">
-								<div class="adults">
-									<h3>Adult:(12+ yrs)</h3>
-									<div class="quantity"> 
-										<div class="quantity-select">                           
-											<div class="entry value-minus">&nbsp;</div>
-											<div class="entry value"><span>1</span></div>
-											<div class="entry value-plus active">&nbsp;</div>
-										</div>
-									</div>
-								</div>
-								<div class="child">
-									<h3>Child:(2-11 yrs)</h3>
-									<div class="quantity"> 
-										<div class="quantity-select">                           
-											<div class="entry value-minus">&nbsp;</div>
-											<div class="entry value"><span>1</span></div>
-											<div class="entry value-plus active">&nbsp;</div>
-										</div>
-									</div>
-								</div>
-								<div class="clear"></div>
-							</div>
-							<div class="clear"></div>
-							<input type="submit" value="Search Flights">
-							</form>
-						</ul>
-					</div>
-					</div>
 					<div class="tab-1 resp-tab-content register">
 						<form action="<?php base_url();?>index.php/Welcome/add_user" method="post">
-							<div class="username">
+							<div class="from">
 								<h3>User Name</h3>
-								<input type="text" name="username" class="" id="username" placeholder="user name" required="">
+								<input type="text" name="username" class="" id="username" placeholder="Username" required="">
 							</div>
-							<div class="password">
+							<div class="to">
 								<h3>Password</h3>
-								<input type="password" name="password" id="password" class="" placeholder="password" required="">
+								<input type="password" name="password" id="password" class="" placeholder="Password" required="">
 							</div>
-							<div class="fullname">
+							<div class="from">
 								<h3>Full Name</h3>
-								<input type="text" name="fullname" id="fullname" class="" placeholder="full name" required="">
+								<input type="text" name="fullname" id="fullname" class="" placeholder="Full Name" required="">
 							</div>
-							<div class="level">
+							<div class="to">
 								<h3>Level</h3>
-								<input type="text" name="level" id="level" class="" placeholder="level" required="">
-								
+								<select id="w3_country1" class="select-kota" name="level" onchange="change_country(this.value)" class="frm-field required">
+									<option value="user">User</option>  
+									<option value="admin">Admin</option>					
+								</select>
 							</div>
+							
 							<input type="submit" name="kirim" value="Daftar">
+						</form>						
+					</div>
+					<div class="tab-1 resp-tab-content login">
+						<form action="<?php base_url();?>index.php/welcome/login" method="post">
+							<br>
+							<div class="from">
+								<h3>User Name</h3>
+								<input type="text" name="username" class="" id="username" placeholder="Username" required="">
+							</div>
+							<div class="to">
+								<h3>Password</h3>
+								<input type="password" name="password" id="password" class="" placeholder="Password" required="">
+							</div>
+							<input type="submit" name="kirim" value="Masuk">
 						</form>						
 					</div>		
 				</div>						
@@ -277,7 +246,7 @@
 		</div>
 	</div>
 	<div class="footer-w3l">
-		<p class="agileinfo"> &copy; 2016 Flight Ticket Booking . All Rights Reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>
+		<p class="agileinfo"> &copy; 2018 TRAVELKITA </p>
 	</div>
 	<!--script for portfolio-->
 		<script src="<?php echo URL_ASSETS;?>/js/jquery.min.js"> </script>

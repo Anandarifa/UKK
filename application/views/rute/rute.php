@@ -93,8 +93,8 @@ desired effect
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">HEADER</li>
         <!-- Optionally, you can add icons to the links -->
-        <li class="active"><a href="#"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
-        <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
+        <li><a href="<?php echo base_url(); ?>index.php/welcome/dashboard"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
+        <li class="active"><a href="<?php echo base_url(); ?>index.php/welcome/rute"><i class="fa fa-road"></i> <span>Rute Perjalanan</span></a></li>
         <li class="treeview">
           <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
             <span class="pull-right-container">
@@ -116,45 +116,60 @@ desired effect
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1>
-        Tambah User
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i>CRUD</a></li>
-        <li class="active">User</li>
-      </ol>
+      
     </section>
 
     <!-- Main content -->
      <section class="content">
       <div class="row">
-        <div class="col-xs-12 col-md-6">
+        <div class="col-xs-12">
           <div class="box">
+            <div class="box-header">
+              <a href="<?php echo base_url(); ?>index.php/welcome/tambahuser" class="btn btn-primary"><i class="fa fa-plus"></i> Tambah</a>
+            </div>
             <!-- /.box-header -->
-            <form action="<?php echo base_url()?>index.php/welcome/saveedituser" method="post">
             <div class="box-body">
-              <div class="form-group">
-                <label>Username</label>
-                <input type="hidden" id="id" class="form-control" value="<?php echo $id_user;?>" name="userid">
-                <input type="text" id="username" class="form-control" value="<?php echo $username;?>" name="username" required>
-              </div>
-              <div class="form-group">
-                <label>Password</label>
-                <input type="password" id="password" class="form-control" value="<?php echo $password;?>" name="password" required>
-              </div>
-              <div class="form-group">
-                <label>Fullname</label>
-                <input type="text" id="fullname" class="form-control" value="<?php echo $fullname;?>" name="fullname" required>
-              </div>
-              <div class="form-group">
-                <label>Level</label>
-                <input type="text" id="fullname" class="form-control" value="<?php echo $level;?>" name="level" required>
-              </div>
-              <div class="form-group">
-                <input type="submit" name="Simpan" value="Simpan" class="btn btn-primary">
-                <a href="<?php echo base_url();?>welcome/dashboard" class="btn btn-primary">Kembali</a>
-              </div>
-            </form>
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>No.</th>
+                  <th>Waktu Keberangkatan</th>
+                  <th>Keberangkatan</th>
+                  <th>Tujuan</th>
+                  <th>Harga</th>
+                  <th>Id Pesawat</th>
+                  <th>Aksi</th>
+                </tr>
+                </thead>
+                <tbody>
+                  <?php $no=0; foreach($data_rute as $row) { $no++ ?>
+                <tr>
+                  <td><?php echo $no; ?></td>
+                  <td><?php echo $row['depart_at']; ?></td>
+                  <td><?php echo $row['rute_form']; ?></td>
+                  <td><?php echo $row['rute_to']; ?></td>
+                  <td>Rp <?php echo $row['price']; ?></td>
+                  <td><?php echo $row['transportationid']; ?></td>
+                  <td>
+                      <a class="btn btn-warning btn-sm" href="<?php echo base_url(); ?>travelitacon/editrute/<?php echo $row['id_rute']; ?>">Edit</a>
+                      <a onclick="return confirm('Hapus data??');" class="btn btn-danger btn-sm" href="<?php echo base_url(); ?>index.php/welcome/hapusrute/<?php echo $row['id_rute'];?>">Hapus</a>
+                  </td>
+                </tr>
+                <?php } ?>
+                </tbody>
+                <tfoot>
+                <tr>
+                  <th>No.</th>
+                  <th>Waktu Keberangkatan</th>
+                  <th>Keberangkatan</th>
+                  <th>Tujuan</th>
+                  <th>Harga</th>
+                  <th>Id Pesawat</th>
+                  <th>Aksi</th>
+                </tr>
+                </tfoot>
+              </table>
+            </div>
             <!-- /.box-body -->
           </div>
           <!-- /.box -->

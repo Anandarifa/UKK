@@ -22,6 +22,14 @@ class Model extends CI_Model {
 			return false;
 		}
 	}
+	function GetData($data) {
+        $query = $this->db->get_where('user', $data);
+        return $query;
+    }
+    public function getrute($where=" "){
+		$data =$this->db->query('select * from rute ' .$where);
+		return $data;
+	}
 	public function getuser($where=" "){
 		$data =$this->db->query('select * from user ' .$where);
 		return $data;
